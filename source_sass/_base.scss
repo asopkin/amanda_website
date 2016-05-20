@@ -1,1 +1,694 @@
 // Add any custom Sass & CSS here
+
+/** menu **/
+/* menu stuff */
+
+@media (max-width: 800px){
+  .mobile{
+    display: block;
+   }
+  .top-bar{
+    display: none;
+    visibility: hidden;
+   }
+ }
+
+.mobile{
+  @media (min-width: 600px){
+  display: none;
+  }
+
+  /* position and alignment */
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  top: 0;
+
+  div{
+    display: none;
+  }
+  button{
+  	/* position */
+    position: absolute;
+    top: 5px;
+    left: 15px;
+    text-indent: 200%;
+    overflow: hidden;
+    width: 50px;
+    height: 50px;
+
+    /* border */
+    border: 0;
+    border: 1px solid $dark-blue-color;
+    border-radius: 3px;
+    outline: none;
+
+    /* background */
+    background: $dark-pink-color url(http://i.imgur.com/vKRaKDX.png) center no-repeat;
+    background-size: 80%;
+
+    /* transition */
+    transition: all 400ms ease;
+    &.expanded{
+      transform: rotate(90deg);
+      background-color: transparent;
+      border: 0;
+      left: 322px;
+      }
+  }
+  a{
+  	/* positioning */
+    display: block;
+
+    /* coloring */
+    color: black;
+    background-color: $dark-blue-color;
+    border: solid 1px black;
+
+    /* fonts */
+	font-size: 30px;
+	font-family: simpleFont;
+  }
+}
+
+/** main nav bar **/
+#nav{
+	width: 100%;
+	background-color: $dark-blue-color;
+
+	&.shrink{
+		height: 80px;
+		padding-top: 5px;
+	}
+}
+
+.columns{
+	@include normal-margins-mixin();
+}
+
+.top-bar{
+	/* dimensions */
+	height: 100px;
+	width: 100%;
+
+	/* positioning */
+	position: fixed;
+	z-index: 1;
+	padding-top: 25px;
+
+	left: 0;
+  	top: 0;
+
+	/* margins */
+	@include normal-bottom-margin-mixin();
+
+	/* colors */
+	color: white;
+
+	/* border */
+	border: solid 4px $light-blue-color;
+	background-color: $dark-blue-color;
+
+	/* fonts */
+	text-decoration: none;
+	font-size: 35px;
+	font-family: simpleFont;
+
+	ul{
+		background-color: $dark-blue-color;
+	}
+
+	li{
+		display: inline;
+		background-color: $dark-blue-color;
+	}
+
+	li a:not(.button):hover{
+		color: black;
+	}
+
+	li.active a:not(.button) {
+		color: white;
+		border-top: solid 3px white;
+
+		&:hover{
+		border-top: solid 3px black;
+		}
+	}
+
+	a{
+		background-color: $dark-blue-color;
+		color: inherit;
+		style: inherit;
+		weight: bold;
+	}
+}
+
+/** pos indicator **/
+progress {
+  /* Positioning */
+  position: fixed;
+  left: 0;
+  top: 0;
+
+  /* Dimensions */
+  width: 100%;
+  height: 4px;
+
+  /* Remove presets for progress bars */  
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: transparent;
+}
+
+.flat::-webkit-progress-value {
+  background-color: $dark-pink-color;
+}
+
+.flat::-moz-progress-bar {
+  background-color: $dark-pink-color;
+}
+
+
+.progress-container {
+  /* position and alignment */
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: .25em;
+
+  /* coloring */
+  background-color: transparent;
+  display: block;
+}
+
+.progress-bar {
+  /* positioning */
+  width: 50%;
+  display: block;
+  height: inherit;
+
+  /* coloring */
+  background-color: white;
+}
+
+/* body */
+body{
+	background-color: white;
+}
+
+.about-page{
+	background-color: white;
+}
+
+.spacer{
+	height: 95px;
+	background-color: white;
+}
+
+.about-me{
+	/* colors */
+	background-color: $dark-pink-color;
+
+	/* size */
+	height: 150px;
+
+	/* margins */
+	margin-top: 100px;
+	position: relative;
+
+	h2{
+	padding-top: 43px;
+	}
+
+	/* text */
+	color: white;
+	text-align: center;
+
+	font-family: simpleFont;
+	font-size: 50px;
+}
+
+#contact{
+	height: 50px;
+	color: black;
+}
+
+
+/* music info */
+.track-info{
+	padding-top: 120px;
+}
+.my-music{
+  h2{
+    padding-top: 120px;
+    font-family: simpleFont;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .dancing-music{
+    img{
+    width: 400px;
+    margin: 0 auto;
+    text-align: center;
+    }
+  }
+}
+
+#music-recent{
+  padding-top: 50px;
+  list-style: none;
+  font-family: simpleFont;
+  font-size: 35px;
+  font-weight: bold;
+
+  /* center */
+  #music-card{
+    z-index: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    min-height: 820px;
+    max-height: 3000px;
+  }
+  .card-image{
+    height: 820px;
+    img{
+    opacity: 0.6;
+    }
+  }
+  .card-title{
+    font-size: 37px;
+    color: $ink-color;
+    font-weight: bold;
+    text-shadow: white 0px 0px 20px;
+  }
+  .card-content{
+    color: $ink-color;
+    font-size: 20px;
+    max-height: 300px;
+  }
+  .card-action{
+    color: $apricot-color;
+  }
+}
+
+#music-feed{
+  padding-top: 50px;
+  list-style: none;
+  font-family: simpleFont;
+  font-size: 35px;
+  font-weight: bold;
+
+  height: 1800px;
+  overflow: scroll;
+
+
+  /* center */
+  #music-card{
+    z-index: 0;
+    max-width: 500px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    min-height: 820px;
+    max-height: 3000px;
+  }
+  .card-image{
+    height: 820px;
+    img{
+    opacity: 0.6;
+    }
+  }
+  .card-title{
+    font-size: 37px;
+    color: $ink-color;
+    font-weight: bold;
+    text-shadow: white 0px 0px 20px;
+  }
+  .card-content{
+    color: $ink-color;
+    font-size: 20px;
+  }
+  .card-action{
+    color: $apricot-color;
+  }
+}
+
+/** balloon **/
+.balloon {
+  position:absolute;
+  left: 0;
+  top: 0;
+}
+
+.food {
+  background-image: url(https://pixabay.com/static/uploads/photo/2015/05/22/11/48/cupcake-778704_960_720.png);
+}
+.orange {
+  background-color: $apricot-color;
+}
+
+.powder {
+  background-color: $powder-color;
+}
+
+.computer{
+  background-image: url(https://openclipart.org/image/2400px/svg_to_png/25793/srippon-B-W-cartoon-computer-base-monitor.png);
+}
+.cats {
+  background-image: url(https://static.pexels.com/photos/2796/black-and-white-beach-life-guard-safety.jpg);
+}
+.animals {
+  background-image: url(http://images.fineartamerica.com/images-medium-large/black-and-white-image-of-waves-rolling-onto-a-beach-anya-brewley-schultheiss.jpg);
+}
+.stack {
+  background-image: url(http://frugalfinders.com/wp-content/uploads/2013/02/Stack-of-Pancakes.png);
+  background-color: white;
+  background-position: 0px 50px;
+  /**background-size: 100% 500px;**/
+}
+
+.css3cover{
+  background-image: url(http://vrevotechnology.com/images/css3.png);
+  background-size: 250px 250px;
+}
+
+.frames {
+  position:relative;
+  left: 0;
+  top: 0;
+}
+
+
+.photoleft {
+  background-attachment: fixed;
+  background-position: 20% 0;
+  background-repeat: no-repeat;
+  height: 450px;
+  position: relative;
+}
+
+.mean{
+  background-image: url(https://d21ii91i3y6o6h.cloudfront.net/gallery_images/from_proof/6120/large/1435723400/mean-stack-die-cut.png);
+}
+
+.html5{
+  background-image: url(http://technoplugin.com/Content/html5.png);
+  background-size: 200px 200px;
+}
+
+.photoright {
+  background-attachment: fixed;
+  background-position: 70% 0;
+  background-repeat: no-repeat;
+  height: 450px;
+  position: relative;
+}
+
+
+.color-small {
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  height: 250px;
+  position: relative;
+}
+
+.photo {
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  height: 450px;
+  position: relative;
+}
+.photo span {
+  bottom: 0;
+  color: white;
+  display: block;
+  left: 50%;
+  margin-left: -640px;
+  font-size: 38px;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 2px 0 black, 0 0 10px black;
+  width: 1280px;
+}
+
+.pancakes {
+  background-attachment: fixed;
+  background-position: 50% 35%;
+  background-repeat: no-repeat;
+  height: 550px;
+  position: relative;
+}
+.pancakes span {
+  bottom: 0;
+  color: white;
+  display: block;
+  left: 50%;
+  margin-left: -640px;
+  font-size: 38px;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 2px 0 black, 0 0 10px black;
+  width: 1280px;
+}
+
+.caption {
+  background-attachment: fixed;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  height: 100px;
+  position: relative;
+}
+.caption span {
+  bottom: 0;
+  color: white;
+  display: block;
+  left: 50%;
+  margin-left: -640px;
+  font-size: 38px;
+  padding: 10px;
+  position: absolute;
+  text-shadow: 0 2px 0 black, 0 0 10px black;
+  width: 1280px;
+}
+
+#frameworksrow{
+  height: 220px;
+}
+
+#learning{
+  font-size:5em; 
+  font-family: simpleFont; 
+  font-size: 95px;
+  padding-top: 242px; 
+  color: black; 
+  text-align: center;
+  img{
+    height: 200px;
+  }
+}
+
+/* relaxing */
+#relax{
+  font-size:5em; 
+  font-family: simpleFont; 
+  color: black; 
+  text-align: center;
+}
+
+h2{
+  font-family: simpleFont;
+  font-weight: bold;
+}
+
+
+/* contact form */
+#contact{
+  margin-top:100px;
+  padding-bottom: 200px;
+
+  /* fonts */
+  font-family: Arial;
+  font-size: 40px;
+  font-weight: bold;
+  color: black;
+
+  #submit-button{
+    font-size: 15px;
+  }
+}
+
+/* label color */
+.form-label{
+  font-size: 16px;
+  color: #e2e2e2;
+/*  display: block;
+  transform: translateY(25px);
+  transition: all 0.5s;*/
+}
+
+#name{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+#email{
+  background: transparent;
+  border: none;
+  outline: none;
+}
+.input-field{
+  padding-top: 40px;
+}
+#message{
+  padding-top: 40px;
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+#submit-button{
+background-color: $ink-color;
+color: white;
+}
+
+
+/* toast */
+#toast-container {
+    position: fixed !important;
+    bottom: 10px !important;
+    left: 30% !important;
+}
+
+/* search */
+#search{
+  background: transparent;
+  border: none;
+  outline: none;
+  background-color: $apricot-color;
+}
+
+/* projects page */
+
+/* modal */
+#projects{
+  margin-top: 100px;
+  overflow: scroll;
+  z-index: -5;
+
+  .col{
+    /* positioning*/
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 40px;
+    display: table;
+
+    /* z-index */
+    z-index: -1;
+
+
+    h3{
+      font-family: simpleFont;
+      font-weight: bold;
+      font-size: 25px;
+    }
+
+    /* size */
+    .btn{
+      img{
+        width: auto;
+        height: auto;
+      }
+
+      videp{
+        width: auto;
+        height: auto;
+      }
+
+      /* centering */
+      text-align: center;
+      display: table-cell;
+
+      a{
+        text-decoration: none;
+      }
+
+    }
+
+  }
+
+}
+
+#powder{
+/* colors */
+background-color: $powder-color;
+color: $ink-color;
+}
+
+#pink{
+    background-color: $pink-color;
+    color: $ink-color;
+}
+
+#lightpink{
+    background-color: $light-pink-color;
+    color: $ink-color;
+}
+
+#darkpink{
+    background-color: $dark-pink-color;
+}
+
+#ink{
+    background-color: $ink-color;
+    color: $light-pink-color;
+}
+
+#yellow{
+    background-color: $yellow-color;
+}
+
+
+#apricot{
+    background-color: $apricot-color;
+}
+
+#seagreen{
+    background-color: $sea-green-color;
+}
+
+/* modal */
+.modal{
+  font-family: Arial;
+  font-size: 20px;
+  display: table;
+}
+
+.modal-content{
+  display: table-cell;
+  text-align: center;
+}
+
+/* birthdays */
+#cakepic{
+  margin:0 auto;
+  width: 130px;
+  height: 200px;
+}
+
+#cake:active img {
+    -webkit-transform: rotate(600deg);
+    -webkit-transition: -webkit-transform 2s ease-out;
+}
+
+/* spin */
+

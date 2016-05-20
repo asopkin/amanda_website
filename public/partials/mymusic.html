@@ -1,0 +1,68 @@
+<!--<div class="my-music">
+<div class="track-info">
+<li ng-repeat="song in songs">
+<h2>{{ song.name }}</h2>
+</li>
+</div>
+</div>
+-->
+
+<div class="my-music">
+  <h2> What I just listened to... </h2>
+  <center><div class="dancing-music"><img src="http://33.media.tumblr.com/tumblr_m9wojoZH131rfjowdo1_500.gif"></div></center>
+  <div class="row" id="music-recent">
+  <li ng-repeat="song in songs">
+    <div class="col s12">
+      <div class="card large" id="music-card" ng-show="{{ song.image[3]['#text'] }}">
+        <div class="card-image">
+          <img ng-src="{{ song.image[3]['#text'] }}">
+          <span class="card-title">{{ song.name }}</span>
+        </div>
+        <div class="card-content">
+          <p>By: {{ song.artist['#text'] }}</p>
+          <p>Album: {{ song.album['#text'] }}</p>
+        </div>
+        <div class="card-action">
+          <a ng-href="{{ song.url }}" target="_blank">Listen</a>
+        </div>
+      </div>
+      <!-- alternate -->
+	  <div class="card medium" id="music-card" ng-show="checkImage(song.image[3]['#text'])">
+	    <div class="card-image">
+	      <img src="http://cliparts.co/cliparts/8iE/jzz/8iEjzz9bT.png" style="opacity: 0.2;">
+	      <span class="card-title">{{ song.name }}</span>
+	    </div>
+	    <div class="card-content">
+	      <p>By: {{ song.artist['#text'] }}</p>
+	    </div>
+	    <div class="card-action">
+	      <a ng-href="{{ song.url }}" target="_blank">Listen</a>
+	    </div>
+	  </div> 
+	  <!-- alt -->
+	   </li>
+    </div>
+  	<!-- current -->
+  	<h2> What I've been listening to...  </h2>
+  	<div class="row" id="music-feed">
+  	<li ng-repeat="song in feed">
+    <div class="col s12">
+      <div class="card large" id="music-card" ng-show="{{ song.image[3]['#text'] }}">
+        <div class="card-image">
+          <img ng-src="{{ song.image[3]['#text'] }}">
+          <span class="card-title">{{ song.name }}</span>
+        </div>
+        <div class="card-content">
+          <p>By: {{ song.artist['#text'] }}</p>
+          <p>Album: {{ song.album['#text'] }}</p>
+        </div>
+        <div class="card-action">
+          <a ng-href="{{ song.url }}" target="_blank">Listen</a>
+        </div>
+      </div> <!-- end card -->
+    </div>
+    </li>
+  </div>
+  <!-- end feed -->
+ </div>
+ </div>

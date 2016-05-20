@@ -18,7 +18,23 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/llamalist.html',
     controller: 'LlamaListController'
   }).
+  when('/projects', {
+    templateUrl: 'partials/projects.html',
+    controller: 'ProjectsController'
+  }).
+  when('/mymusic', {
+    templateUrl: 'partials/mymusic.html',
+    controller: 'MyMusicController'
+  }).
+  when('/birthdays', {
+    templateUrl: 'partials/birthdays.html',
+    controller: 'BirthdayController'
+  }).
+  when('/about', {
+    templateUrl: 'partials/about.html',
+    controller: 'AboutController'
+  }).
   otherwise({
-    redirectTo: '/settings'
+    redirectTo: '/about'
   });
 }]);
