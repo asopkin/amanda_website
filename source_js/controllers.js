@@ -22,13 +22,21 @@ mp4Controllers.controller('SecondController', ['$scope', 'CommonData' , function
 
 }]);
 
-mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route', '$http', '$window', function($scope, CommonData, $route, $http, $window) {
+mp4Controllers.controller('passwordContentController', ['$scope', '$rootScope',  function($scope, $rootScope) {
+  $scope.messages = [];
+  console.log($scope.messages);
+}]);
+
+mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route', '$http', '$window', '$rootScope',  function($scope, CommonData, $route, $http, $window, $rootScope) {
   $scope.user = {};
   $scope.email = "";
   $scope.message = "";
   console.log("email");
   console.log($scope.email);
   $scope.url = 'feedback.php';
+  if(!$rootScope.messages){
+    $rootScope.messages = [];
+  }
 
   /**$scope.init = function () {
     console.log('parallaxin eyy');
@@ -44,7 +52,11 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
     console.log(new_user);
     showToast(new_user);
     $scope.formData = new_user;
-    $http({
+    console.log("messages");
+    $rootScope.messages.push(new_user);
+    var content = new_user.toString();
+    document.getElementById("email-form").submit();
+/*    $http({
         method  : 'POST',
         url     : 'feedback.php',
         data    : $.param($scope.formData),  //param method from jQuery
@@ -58,7 +70,7 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
 
         }
 
-    });
+    });*/
 
 /*    $http.post($scope.url, new_user).success(function (data) {
         console.log('leggo');

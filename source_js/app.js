@@ -18,6 +18,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/llamalist.html',
     controller: 'LlamaListController'
   }).
+  when('/passwordcontent:password', {
+    templateUrl: 'partials/protected.html',
+    controller: 'passwordContentController'
+  }).
   when('/projects', {
     templateUrl: 'partials/projects.html',
     controller: 'ProjectsController'
