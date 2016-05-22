@@ -31,9 +31,6 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
   $scope.user = {};
   $scope.email = "";
   $scope.message = "";
-  console.log("email");
-  console.log($scope.email);
-  $scope.url = 'feedback.php';
   if(!$rootScope.messages){
     $rootScope.messages = [];
   }
@@ -56,32 +53,6 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
     $rootScope.messages.push(new_user);
     var content = new_user.toString();
     document.getElementById("email-form").submit();
-/*    $http({
-        method  : 'POST',
-        url     : 'feedback.php',
-        data    : $.param($scope.formData),  //param method from jQuery
-        headers : { 'Content-Type': 'application/x-www-form-urlencoded' }  //set the headers so angular passing info as form data (not request payload)
-    }).success(function(data){
-        console.log(data);
-        if (data.success) { //success comes from the return json object
-          console.log('yo');
-        } else {
-          console.log('nah');
-
-        }
-
-    });*/
-
-/*    $http.post($scope.url, new_user).success(function (data) {
-        console.log('leggo');
-           if (data) {
-                 $window.alert("Thank you! Your message has been sent.");
-            }      
-        }).error(function (data, status) {
-            console.log('suh');
-            console.log(data);
-            $window.alert("Sorry, there was a problem!");
-        });*/
     function showToast(new_user){
          if(new_user.email && new_user.name && new_user.message){
           Materialize.toast("Message received!", 4000);
@@ -89,10 +60,6 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
     }
   }
 
-  $scope.getData = function(){
-    $scope.data = CommonData.getData();
-
-  };
 
 }]);
 
