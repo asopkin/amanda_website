@@ -13,7 +13,7 @@
   <div class="row" id="music-recent">
   <li ng-repeat="song in songs">
     <div class="col s12">
-      <div class="card large" id="music-card" ng-show="{{ song.image[3]['#text'] }}">
+      <div class="card large" id="music-card" ng-show="checkImageColor(song.image[3]['#text'])">
         <div class="card-image">
           <img ng-src="{{ song.image[3]['#text'] }}">
           <span class="card-title">{{ song.name }}</span>
@@ -47,7 +47,7 @@
   	<div class="row" id="music-feed">
   	<li ng-repeat="song in feed">
     <div class="col s12">
-      <div class="card large" id="music-card" ng-show="{{ song.image[3]['#text'] }}">
+      <div class="card large" id="music-card" ng-show="checkImageColor(song.image[3]['#text'])">
         <div class="card-image">
           <img ng-src="{{ song.image[3]['#text'] }}">
           <span class="card-title">{{ song.name }}</span>

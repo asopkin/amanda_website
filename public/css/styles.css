@@ -4271,7 +4271,7 @@ table.hover tr:nth-of-type(even):hover {
   width: 100%;
   /* positioning */
   position: fixed;
-  z-index: 1;
+  z-index: 10;
   padding-top: 25px;
   left: 0;
   top: 0;
@@ -4734,7 +4734,7 @@ h2 {
 #projects {
   margin-top: 100px;
   overflow: scroll;
-  z-index: -5; }
+  z-index: 0; }
   /* line 588, ../../source_sass/_base.scss */
   #projects .col {
     /* positioning*/
@@ -4743,7 +4743,7 @@ h2 {
     padding-top: 40px;
     display: table;
     /* z-index */
-    z-index: -1;
+    z-index: 0;
     /* size */ }
     /* line 599, ../../source_sass/_base.scss */
     #projects .col h3 {
@@ -4768,62 +4768,68 @@ h2 {
         text-decoration: none; }
 
 /* line 631, ../../source_sass/_base.scss */
+.modal {
+  width: 75% !important;
+  max-height: 100% !important;
+  background-color: white; }
+
+/* line 639, ../../source_sass/_base.scss */
 #powder {
   /* colors */
   background-color: #c4d4e0;
   color: #193446; }
 
-/* line 637, ../../source_sass/_base.scss */
+/* line 645, ../../source_sass/_base.scss */
 #pink {
   background-color: #ffb689;
   color: #193446; }
 
-/* line 642, ../../source_sass/_base.scss */
+/* line 650, ../../source_sass/_base.scss */
 #lightpink {
   background-color: #F4CBDB;
   color: #193446; }
 
-/* line 647, ../../source_sass/_base.scss */
+/* line 655, ../../source_sass/_base.scss */
 #darkpink {
   background-color: #EA8F98; }
 
-/* line 651, ../../source_sass/_base.scss */
+/* line 659, ../../source_sass/_base.scss */
 #ink {
   background-color: #193446;
   color: #F4CBDB; }
 
-/* line 656, ../../source_sass/_base.scss */
+/* line 664, ../../source_sass/_base.scss */
 #yellow {
   background-color: #e9c77b; }
 
-/* line 661, ../../source_sass/_base.scss */
+/* line 669, ../../source_sass/_base.scss */
 #apricot {
   background-color: #e2b49a; }
 
-/* line 665, ../../source_sass/_base.scss */
+/* line 673, ../../source_sass/_base.scss */
 #seagreen {
   background-color: #61c obf; }
 
 /* modal */
-/* line 670, ../../source_sass/_base.scss */
+/* line 678, ../../source_sass/_base.scss */
 .modal {
   font-family: Arial;
   font-size: 20px;
   display: table; }
 
-/* line 676, ../../source_sass/_base.scss */
+/* line 684, ../../source_sass/_base.scss */
 .modal-content {
   display: table-cell;
   text-align: center; }
 
 /* birthdays */
-/* line 682, ../../source_sass/_base.scss */
+/* line 690, ../../source_sass/_base.scss */
 #cakepic {
   margin: 0 auto;
   width: 130px;
   height: 200px; }
 
-/* line 688, ../../source_sass/_base.scss */
+/* line 696, ../../source_sass/_base.scss */
 #cake:active img {
   -webkit-transform: rotate(600deg);
   -webkit-transition: -webkit-transform 2s ease-out; }

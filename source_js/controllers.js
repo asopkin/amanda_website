@@ -35,27 +35,15 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
     $rootScope.messages = [];
   }
 
-  /**$scope.init = function () {
-    console.log('parallaxin eyy');
-    $('.parallax').parallax();
-  };**/
-
-/*document.getElementById("submit-button").onclick = function() {
-    console.log('submitting');
-    document.getElementById("email-form").submit();
- }*/
-
+  /* submit form */
   $scope.update = function(new_user){
-    console.log(new_user);
     showToast(new_user);
     $scope.formData = new_user;
-    console.log("messages");
-    $rootScope.messages.push(new_user);
     var content = new_user.toString();
     document.getElementById("email-form").submit();
     function showToast(new_user){
          if(new_user.email && new_user.name && new_user.message){
-          Materialize.toast("Message received!", 4000);
+          Materialize.toast("Preparing email!", 4000);
         }
     }
   }
@@ -66,24 +54,24 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
 mp4Controllers.controller('MyMusicController', ['$scope', 'CommonData' , '$http', function($scope, CommonData, $http) {
   $scope.data = "";
 
-  $scope.getData = function(){
-    $scope.data = CommonData.getData();
-
-  };
   $http.get("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=1&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
-      console.log("1 song");
       $scope.songs = data.recenttracks.track;
-      console.log($scope.songs);
    });
 
   $http.get("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=20&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
-      console.log("feed");
-      console.log(data.recenttracks.track[0]);
       data.recenttracks.track.splice(0, 1);
       $scope.feed = data.recenttracks.track;
-      console.log("mod feed");
-      console.log(data.recenttracks.track[0]);
    });
+
+  $scope.checkImageColor = function(imageVal){
+    if(imageVal==undefined || imageVal==""){
+      return false;
+    }
+    else{
+      return true;
+    }
+  }
+
 
   $scope.checkImage = function(imageVal){
     if(imageVal==undefined || imageVal==""){

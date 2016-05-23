@@ -93,7 +93,7 @@
 
 	/* positioning */
 	position: fixed;
-	z-index: 1;
+	z-index: 10;
 	padding-top: 25px;
 
 	left: 0;
@@ -583,7 +583,7 @@ color: white;
 #projects{
   margin-top: 100px;
   overflow: scroll;
-  z-index: -5;
+  z-index: 0;
 
   .col{
     /* positioning*/
@@ -593,7 +593,7 @@ color: white;
     display: table;
 
     /* z-index */
-    z-index: -1;
+    z-index: 0;
 
 
     h3{
@@ -627,6 +627,14 @@ color: white;
   }
 
 }
+
+.modal { 
+  width: 75% !important; 
+  max-height: 100% !important;
+  background-color: white;
+} 
+
+
 
 #powder{
 /* colors */
