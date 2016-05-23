@@ -26,6 +26,10 @@ app.config(['$routeProvider', function($routeProvider) {
     templateUrl: 'partials/projects.html',
     controller: 'ProjectsController'
   }).
+  when('/art', {
+    templateUrl: 'partials/art.html',
+    controller: 'ArtController'
+  }).
   when('/mymusic', {
     templateUrl: 'partials/mymusic.html',
     controller: 'MyMusicController'

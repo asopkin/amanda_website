@@ -698,5 +698,28 @@ color: $ink-color;
     -webkit-transition: -webkit-transform 2s ease-out;
 }
 
-/* spin */
+/* art */
 
+#art{
+  margin-top: 150px;
+
+
+  .container {
+      margin: 0 auto;
+      width: 920px;
+      padding: 50px 20px;
+/*      background-color: #fff;*/
+  }
+
+  h3 {
+      text-align: center;
+  }
+
+  canvas {
+      margin: 0 auto;
+      border: 1px solid #dadada;
+      width: 860px;
+      height: 320px;
+  }
+
+}

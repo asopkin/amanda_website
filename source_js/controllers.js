@@ -22,6 +22,37 @@ mp4Controllers.controller('SecondController', ['$scope', 'CommonData' , function
 
 }]);
 
+mp4Controllers.controller('ArtController', ['$scope', function($scope) {
+    $('select').material_select();
+    var button = document.getElementById("preview");
+
+    var canvas = document.getElementById("art-board");
+    button.onclick = function(){
+      /* preview */
+      previewHandler(canvas, document);
+    }
+   var button2 = document.getElementById("save");
+   button2.onclick = makeImage;
+   function makeImage() {
+    var canvas = document.getElementById("art-board");
+    window.location = canvas.toDataURL("image/png");
+    canvas.onclick = function () {
+        window.location = canvas.toDataURL("image/png");
+    };
+  }
+
+  /* clearing */
+  var clearButton = document.getElementById("clear");
+  clearButton.onclick = function(){
+        var c = document.getElementById('art-board');
+        o = c.getContext('2d');
+        o.fillStyle = 'white'
+        o.fillRect(0, 0, c.width, c.height)
+        o.fillStyle = 'black' 
+  }
+
+}]);
+
 mp4Controllers.controller('passwordContentController', ['$scope', '$rootScope',  function($scope, $rootScope) {
   $scope.messages = [];
   console.log($scope.messages);

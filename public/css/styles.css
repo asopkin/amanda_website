@@ -4834,7 +4834,26 @@ h2 {
   -webkit-transform: rotate(600deg);
   -webkit-transition: -webkit-transform 2s ease-out; }
 
-/* spin */
+/* art */
+/* line 703, ../../source_sass/_base.scss */
+#art {
+  margin-top: 150px; }
+  /* line 707, ../../source_sass/_base.scss */
+  #art .container {
+    margin: 0 auto;
+    width: 920px;
+    padding: 50px 20px;
+    /*      background-color: #fff;*/ }
+  /* line 714, ../../source_sass/_base.scss */
+  #art h3 {
+    text-align: center; }
+  /* line 718, ../../source_sass/_base.scss */
+  #art canvas {
+    margin: 0 auto;
+    border: 1px solid #dadada;
+    width: 860px;
+    height: 320px; }
+
 /*
   NOTE: Do not touch this file. Write the bulk of your custom styles
   in _base.scss

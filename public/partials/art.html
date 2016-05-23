@@ -1,0 +1,106 @@
+<div id="art">
+<div class="container" style="border:10px outset #d90202;">
+    <h3 style="font-family: sans-serif;">Draw something and then click on save to save the art.</h3> <br><br><br>
+    <center><canvas id="art-board"></canvas></center>
+    <br>
+    <form class="col s12" id="options">
+    	<div class="row">
+        <div class="input-field col s12">
+        	<i class="material-icons prefix">build</i>
+            <select id="bgColor">
+                <option value="white" selected="selected">White</option>
+                <option value="green">Green</option>
+            </select>
+            <label>Select background color:</label>
+        </div>
+       	<div class="input-field col s12">
+       		<i class="material-icons prefix">dashboard</i>
+            <select id="shape">
+                <option value="none" selected>No Pattern</option>
+                <option value="circles">Circles</option>
+                <option value="squares">Squares</option>
+                <option value="pattern">Pattern</option>
+            </select>
+             <label>Background shapes?</label>
+        </div>
+        <div class="input-field col s12">
+          <i class="material-icons prefix">textsms</i>
+          <textarea name="message" class="materialize-textarea" id="content"></textarea>
+          <label for="message">Write some text</label>
+        </div>
+        <div class="input-field col s12">
+        	<i class="material-icons prefix">colorize</i>
+            <select id="textColor">
+                <option value="black" selected="selected">Black</option>
+                <option value="#42b373">Green</option>
+            </select>
+            <label>Select text color:</label>
+        </div>
+	  <div class="input-field col s12">
+	  		<i class="material-icons prefix">filter</i>
+            <select id="filter">
+                <option value="nofilter" selected="selected">No filter</option>
+                <option value="grayscale">Grayscale</option>
+				<option value="brighten">Brighten</option>
+				<option value="threshold">Threshold</option>
+            </select>
+            <label>Filter?</label>
+		</div> 
+        <center><a class="waves-effect waves-light btn" id="preview">Preview</a>
+        <a class="waves-effect waves-light btn" id="save">Save</a>
+        <a class="waves-effect waves-light btn" id="clear">Clear</a>
+        </center>
+<!-- 	    <input type="button" id="save" value="Save"> -->
+    </form>
+</div> </div><br><br><br><br><br>
+<script>
+			var c = document.getElementById('art-board'),
+				o = c.getContext('2d');
+
+			// here's a really simple little drawing app so people can try their luck at
+			// the lottery that is offline handwriting recognition
+			var drag = false, lastX, lastY;
+			c.onmousedown = function(e){ drag = true; lastX = 0; lastY = 0; e.preventDefault(); c.onmousemove(e) }
+			c.onmouseup   = function(e){ drag = false; e.preventDefault(); }
+			c.onmousemove = function(e){
+				e.preventDefault()
+				var rect = c.getBoundingClientRect();
+				var r = 5;
+
+				function dot(x, y){
+					o.beginPath()
+					o.moveTo(x + r, y)
+					o.arc(x, y, r, 0, Math.PI * 2)
+					o.fill()
+				}
+				if(drag){
+					var x = e.clientX - rect.left, 
+						y = e.clientY - rect.top;
+					
+					if(lastX && lastY){
+						var dx = x - lastX, dy = y - lastY;
+						var d = Math.sqrt(dx * dx + dy * dy);
+						for(var i = 1; i < d; i += 2){
+							dot(lastX + dx / d * i, lastY + dy / d * i)
+						}
+					}
+					dot(x, y)
+
+					lastX = x;
+					lastY = y;
+				}
+			}
+
+
+			document.body.ondragover = function(){ document.body.className = 'dragging'; return false }
+			document.body.ondragend = function(){ document.body.className = ''; return false }
+			document.body.onclick = function(){document.body.className = '';}
+			document.body.ondrop = function(e){
+				e.preventDefault();
+				document.body.className = '';
+				picked_file(e.dataTransfer.files[0]);
+				return false;
+			}
+
+		</script>
+
