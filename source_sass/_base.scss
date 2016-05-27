@@ -17,7 +17,7 @@
   @media (min-width: 600px){
   display: none;
   }
-
+  font-family: simpleFont;
   /* position and alignment */
   position: fixed;
   z-index: 1;
@@ -53,8 +53,11 @@
       transform: rotate(90deg);
       background-color: transparent;
       border: 0;
-      left: 322px;
+      left: 0px;
       }
+  }
+  ul{
+      margin-left: 50px;
   }
   a{
   	/* positioning */
