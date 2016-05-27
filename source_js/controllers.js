@@ -85,12 +85,12 @@ mp4Controllers.controller('AboutController', ['$scope', 'CommonData' , '$route',
 mp4Controllers.controller('MyMusicController', ['$scope', 'CommonData' , '$http', function($scope, CommonData, $http) {
   $scope.data = "";
   console.log("ey");
-  $http.get("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=1&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
+  $http.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=1&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
       console.log(data.recenttracks.track);
       $scope.songs = data.recenttracks.track;
    });
 
-  $http.get("http://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=20&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
+  $http.get("https://ws.audioscrobbler.com/2.0/?method=user.getrecenttracks&user=sopsmusic&limit=20&api_key=f6c0e34e9d8209c4e40094346e8404be&format=json").success(function(data) {
       data.recenttracks.track.splice(0, 1);
       $scope.feed = data.recenttracks.track;
    });
